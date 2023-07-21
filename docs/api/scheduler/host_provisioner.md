@@ -1,0 +1,9 @@
+The "HostProvisioner" class is responsible for handling the provisioning and decommissioning of "vHost" instances in the simulation environment. Its main tasks include provisioning a new "vHost" if any "vContainer" cannot be scheduled and decommissioning idle "vHost" instances that have been inactive for an extended period.
+
+The provisioning process is implemented as an event, and only one provisioning process can exist at any given time during the simulation. When triggered, the provisioning process evaluates the current state of the simulation and checks if there are any "vContainer" instances that cannot be scheduled onto available "vHost" instances. If such a situation is detected, a new "vHost" is provisioned to accommodate the unscheduled "vContainer" and ensure the continuity of the simulation.
+
+On the other hand, the decommissioning process is continuously associated with each "vHost" instance. It periodically checks if a "vHost" is idle, meaning it is not currently hosting any "vContainer" instances. If an idle state is detected, the decommissioning process is engaged, resulting in the shutdown of the idle "vHost" instance. However, if the "vHost" is not idle, indicating it is still hosting active "vContainer" instances, the decommissioning process will back off and wait for the next evaluation cycle. It's important to note that multiple decommissioning processes can coexist during the simulation, each associated with a specific "vHost" instance.
+
+By incorporating the "HostProvisioner" class into the simulation environment, the provisioning and decommissioning of "vHost" instances can be managed dynamically, optimizing resource utilization and ensuring efficient allocation of computational resources.
+
+:::PyCloudSim.scheduler.host_provisioner

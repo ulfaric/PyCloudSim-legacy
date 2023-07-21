@@ -1,0 +1,96 @@
+site_name: PyCloudSim Docs
+
+nav:
+  - Overview: index.md
+  - Tutorials:
+      - Demo: demo.md
+      - Simulate Open5gs: open5gs.md
+  - API Reference:
+      - Simulated Entity:
+          - api/index.md
+          - Physical Component:
+              - api/physical_component/index.md
+              - vCPUCore: api/physical_component/v_cpu_core.md
+              - vCPU: api/physical_component/v_cpu.md
+              - vNIC: api/physical_component/v_nic.md
+          - Physical Entity:
+              - api/physical_entity/index.md
+              - vHost: api/physical_entity/v_host.md
+              - vGateway: api/physical_entity/v_gateway.md
+              - vRouter and vSwitch:
+                  - api/physical_entity/switch_router/index.md
+                  - vRouter: api/physical_entity/switch_router/v_router.md
+                  - vSwitch: api/physical_entity/switch_router/v_switch.md
+          - Virtual Entity:
+              - api/virtual_entity/index.md
+              - vVolume: api/virtual_entity/v_volume.md
+              - vContainer: api/virtual_entity/v_container.md
+              - vMicroservice: api/virtual_entity/v_microservice.md
+              - vService: api/virtual_entity/v_service.md
+              - SFC and vNetworkService:
+                  - api/virtual_entity/sfc_networkservice/index.md
+                  - vSFC: api/virtual_entity/sfc_networkservice/v_sfc.md
+                  - vNetworkService: api/virtual_entity/sfc_networkservice/v_networkservice.md
+              - vProcess, vPacket and vRequest:
+                  - api/virtual_entity/process_packet_request/index.md
+                  - vProcess: api/virtual_entity/process_packet_request/v_process.md
+                  - vPacket: api/virtual_entity/process_packet_request/v_packet.md
+                  - vRequest: api/virtual_entity/process_packet_request/v_request.md
+              - vUser: api/virtual_entity/v_user.md
+          - Scheduler:
+              - Host Provisioner: api/scheduler/host_provisioner.md
+              - Container Scheduler: api/scheduler/container_scheduler.md
+              - Request Scheduler: api/scheduler/request_scheduler.md
+              - Volume Allocator: api/scheduler/volume_allocator.md
+          - Monitor:
+              - Host Monitor: api/monitor/host_monitor.md
+              - Microservice Monitor: api/monitor/microservice_monitor.md
+              - Request Monitor: api/monitor/request_monitor.md
+
+theme:
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  name: "material"
+
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - navigation.sections
+    - navigation.indexes
+    - navigation.tracking
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings
+
+markdown_extensions:
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

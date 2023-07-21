@@ -1,0 +1,7 @@
+The "RequestScheduler" class is responsible for scheduling "vRequest" instances onto "vContainer" instances in a simulated cloud environment. Since the computational resource usage of a "vRequest" cannot be known in advance due to the dynamic generation of "vProcess" and "vPacket" during execution, the "RequestScheduler" behaves like a load balancer, distributing "vRequest" instances among "vContainer" instances.
+
+By default, the "RequestScheduler" uses a logic that directs each "vRequest" to the "vContainer" instance that is currently executing the least number of "vRequest" instances. This default logic ensures a balanced distribution of workloads across available "vContainer" instances. However, the "RequestScheduler" class also provides an abstract member function that allows developers to customize the scheduling logic according to specific requirements.
+
+Similar to the "ContainerScheduler", the scheduling process in the "RequestScheduler" is implemented as an event that is triggered whenever a new "vRequest" is created, a current "vRequest" is terminated or a new 'vContainer" is scheduled. This ensures that all unscheduled "vRequest" instances are processed and assigned to appropriate "vContainer" instances as soon as possible. During the simulation, only one "RequestScheduler" scheduling process can exist at any time to maintain the consistency of workload distribution.
+
+:::PyCloudSim.scheduler.request_scheduler
